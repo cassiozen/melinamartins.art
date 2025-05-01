@@ -8,7 +8,7 @@ interface Props {
 const { href, text, variant = 'primary' } = Astro.props;
 ---
 
-<a href={href} class={`btn btn-${variant}`}>
+<a href={href}>
   {text}
 </a>
 
