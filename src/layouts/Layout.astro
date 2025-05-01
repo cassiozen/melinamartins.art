@@ -24,22 +24,5 @@ const {
 	</head>
 	<body>
 		<slot />
-
-		<script>
-			// Add animation for elements when they come into view
-			document.addEventListener('DOMContentLoaded', () => {
-				const observer = new IntersectionObserver((entries) => {
-					entries.forEach(entry => {
-						if (entry.isIntersecting) {
-							entry.target.classList.add('visible');
-						}
-					});
-				}, { threshold: 0.1 });
-
-				document.querySelectorAll('.fade-in').forEach(el => {
-					observer.observe(el);
-				});
-			});
-		</script>
 	</body>
 </html>

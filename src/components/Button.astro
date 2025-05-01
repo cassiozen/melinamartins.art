@@ -12,37 +12,3 @@ const { href, text, variant = 'primary' } = Astro.props;
   {text}
 </a>
 
-<style>
-  .btn {
-    display: inline-block;
-    font-weight: 600;
-    text-decoration: none;
-    padding: var(--space-2) var(--space-4);
-    border-radius: var(--radius-md);
-    transition: all var(--transition-fast);
-    cursor: pointer;
-  }
-  
-  .btn-primary {
-    background-color: var(--color-primary-600);
-    color: var(--color-neutral-50);
-  }
-  
-  .btn-primary:hover {
-    background-color: var(--color-primary-700);
-    transform: translateY(-2px);
-    box-shadow: var(--shadow-md);
-  }
-  
-  .btn-secondary {
-    background-color: transparent;
-    color: var(--color-primary-700);
-    border: 2px solid var(--color-primary-600);
-  }
-  
-  .btn-secondary:hover {
-    background-color: var(--color-primary-200);
-    transform: translateY(-2px);
-    box-shadow: var(--shadow-sm);
-  }
-</style>
