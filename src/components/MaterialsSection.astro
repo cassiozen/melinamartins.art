@@ -1,0 +1,124 @@
+---
+---
+
+<section class="materials section">
+  <div class="container">
+    <h2>Materials and Style</h2>
+    <div class="content">
+      <p>
+        I love to make art that reflects both a pet's personality and their owners.
+        When commissioning a portrait, please choose between colored pencils for a more realistic style or charcoal for dramatic contrasts.
+      </p>
+    </div>
+    
+    <div class="samples grid grid-2">
+      <div class="sample fade-in">
+        <div class="sample-image">
+          <img 
+            src="https://images.pexels.com/photos/39317/chihuahua-dog-puppy-cute-39317.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" 
+            alt="Colored pencil portrait sample" 
+          />
+        </div>
+        <h3>Colored Pencil</h3>
+        <p>Vibrant, realistic portraits with fine detail and rich colors.</p>
+      </div>
+      
+      <div class="sample fade-in">
+        <div class="sample-image">
+          <img 
+            src="https://images.pexels.com/photos/1805164/pexels-photo-1805164.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" 
+            alt="Charcoal portrait sample" 
+          />
+        </div>
+        <h3>Charcoal</h3>
+        <p>Dramatic, moody portraits with strong contrasts and expressive lines.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .materials h2 {
+    text-align: center;
+    position: relative;
+    margin-bottom: var(--space-5);
+  }
+  
+  .materials h2:after {
+    content: '';
+    display: block;
+    width: 80px;
+    height: 3px;
+    background-color: var(--color-accent-500);
+    margin: var(--space-2) auto 0;
+  }
+  
+  .content {
+    max-width: 800px;
+    margin: 0 auto var(--space-6);
+    font-size: 1.2rem;
+    line-height: 1.7;
+    text-align: center;
+  }
+  
+  .sample {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  
+  .sample-image {
+    border: 8px solid var(--color-neutral-50);
+    box-shadow: var(--shadow-md);
+    margin-bottom: var(--space-3);
+    transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+    width: 100%;
+    max-width: 400px;
+    overflow: hidden;
+  }
+  
+  .sample-image:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-lg);
+  }
+  
+  .sample-image img {
+    width: 100%;
+    height: auto;
+    transition: transform var(--transition-medium);
+  }
+  
+  .sample-image:hover img {
+    transform: scale(1.05);
+  }
+  
+  .sample h3 {
+    margin-bottom: var(--space-2);
+    color: var(--color-primary-800);
+  }
+  
+  .sample p {
+    color: var(--color-neutral-600);
+    max-width: 300px;
+  }
+</style>
+
+<script>
+  // Fade-in animation for samples when they come into view
+  document.addEventListener('DOMContentLoaded', () => {
+    const fadeElements = document.querySelectorAll('.fade-in');
+    
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.1 });
+    
+    fadeElements.forEach(element => {
+      observer.observe(element);
+    });
+  });
+</script>

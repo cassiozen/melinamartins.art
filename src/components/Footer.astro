@@ -1,0 +1,23 @@
+---
+const currentYear = new Date().getFullYear();
+---
+
+<footer class="footer">
+  <div class="container">
+    <p>&copy; {currentYear} Melina Martins Art. All rights reserved.</p>
+  </div>
+</footer>
+
+<style>
+  .footer {
+    padding: var(--space-4) 0;
+    background-color: var(--color-primary-300);
+    text-align: center;
+  }
+  
+  .footer p {
+    margin: 0;
+    color: var(--color-primary-900);
+    font-size: 0.9rem;
+  }
+</style>

@@ -1,0 +1,37 @@
+---
+import Button from './Button.astro';
+---
+
+<section class="contact section section-alt">
+  <div class="container">
+    <h2>Ready to Book?</h2>
+    <div class="contact-content">
+      <p>Send me an email and let's turn your pet into art.</p>
+      <Button 
+        href="mailto:book@melinamartins.art" 
+        text="Book a Commission" 
+        variant="primary" 
+      />
+    </div>
+  </div>
+</section>
+
+<style>
+  .contact {
+    text-align: center;
+  }
+  
+  .contact h2 {
+    margin-bottom: var(--space-3);
+  }
+  
+  .contact-content {
+    max-width: 600px;
+    margin: 0 auto;
+  }
+  
+  .contact-content p {
+    font-size: 1.2rem;
+    margin-bottom: var(--space-4);
+  }
+</style>
