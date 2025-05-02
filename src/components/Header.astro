@@ -1,12 +1,13 @@
 ---
-
+const { pathname } = Astro.url;
+const isHomePage = pathname === '/';
 ---
 
 <header class="fixed top-0 w-full z-50 bg-white/80 backdrop-blur-md border-b border-pink-500 shadow-lg">
   <div class="container mx-auto px-6 py-4 flex justify-between items-center">
-    <h1 class="text-3xl font-semibold bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500 bg-clip-text text-transparent">
+    <a href="/" class="text-3xl font-semibold bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500 bg-clip-text text-transparent font-header">
       Melina Martins Art
-    </h1>
+    </a>
     <!-- Mobile menu -->
     <div class="md:hidden">
       <details class="relative">
@@ -18,9 +19,9 @@
           </svg>
         </summary>
         <ul class="absolute right-0 mt-2 w-48 bg-white shadow-lg rounded-md divide-y divide-gray-200 overflow-hidden">
-          <li><a href="#commissions" class="block px-4 py-2 text-gray-700 hover:bg-gray-100 hover:text-pink-500">Commissions</a></li>
+          <li><a href={isHomePage ? "#commissions" : "/#commissions"} class="block px-4 py-2 text-gray-700 hover:bg-gray-100 hover:text-pink-500">Commissions</a></li>
           <li><a href="/gallery" class="block px-4 py-2 text-gray-700 hover:bg-gray-100 hover:text-pink-500">Gallery</a></li>
-          <li><a href="#contact" class="block px-4 py-2 text-gray-700 hover:bg-gray-100 hover:text-pink-500">Contact</a></li>
+          <li><a href="mailto:book@melinamartins.art" class="block px-4 py-2 text-gray-700 hover:bg-gray-100 hover:text-pink-500">Contact</a></li>
         </ul>
       </details>
     </div>
@@ -28,7 +29,7 @@
     <nav class="hidden md:block">
       <ul class="flex space-x-8">
         <li class="relative group px-2">
-          <a href="#commissions" class="text-lg font-medium text-gray-600 transition-colors group-hover:text-pink-500">Commissions</a>
+          <a href={isHomePage ? "#commissions" : "/#commissions"} class="text-lg font-medium text-gray-600 transition-colors group-hover:text-pink-500">Commissions</a>
           <span class="absolute bottom-0 left-0 h-0.5 bg-pink-500 transition-all w-0 group-hover:w-full"></span>
         </li>
         <li class="relative group px-2">
@@ -36,7 +37,7 @@
           <span class="absolute bottom-0 left-0 h-0.5 bg-pink-500 transition-all w-0 group-hover:w-full"></span>
         </li>
         <li class="relative group px-2">
-          <a href="#contact" class="text-lg font-medium text-gray-600 transition-colors group-hover:text-pink-500">Contact</a>
+          <a href="mailto:book@melinamartins.art" class="text-lg font-medium text-gray-600 transition-colors group-hover:text-pink-500">Contact</a>
           <span class="absolute bottom-0 left-0 h-0.5 bg-pink-500 transition-all w-0 group-hover:w-full"></span>
         </li>
       </ul>

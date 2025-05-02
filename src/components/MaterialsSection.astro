@@ -1,6 +1,6 @@
 ---
 import { Image } from 'astro:assets';
-import pencils from '../assets/portraits/3.jpg';
+import pencils from '../assets/portraits/1.jpg';
 import charcoal from '../assets/portraits/6.jpg';
 ---
 
@@ -13,22 +13,22 @@ import charcoal from '../assets/portraits/6.jpg';
       more realistic style or charcoal for dramatic contrasts.
     </p>
     <div class="grid md:grid-cols-2 gap-8">
-      <div class="bg-white rounded-lg shadow-lg overflow-hidden flex">
+      <div class="bg-white rounded-lg shadow-lg overflow-hidden flex flex-col lg:flex-row">
         <Image
           src={pencils}
           alt="Colored pencil portrait sample"
-          class="w-64 h-80 object-cover"
+          class="w-fit lg:w-64 lg:h-80 object-cover"
         />
         <div class="p-6">
           <h3 class="text-2xl font-semibold mb-2">Colored Pencil</h3>
           <p class="text-gray-700">Vibrant, realistic portraits with fine detail and rich colors.</p>
         </div>
       </div>
-      <div class="bg-white rounded-lg shadow-lg overflow-hidden flex">
+      <div class="bg-white rounded-lg shadow-lg overflow-hidden flex flex-col lg:flex-row">
         <Image
           src={charcoal}
           alt="Charcoal portrait sample"
-          class="w-64 h-80 object-cover"
+          class="w-fit lg:w-64 lg:h-80 object-cover"
         />
         <div class="p-6">
           <h3 class="text-2xl font-semibold mb-2">Charcoal</h3>
