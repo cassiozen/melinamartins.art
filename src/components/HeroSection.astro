@@ -1,5 +1,7 @@
 ---
 
+import { Image } from 'astro:assets';
+import myImage from '../assets/portraits/5.jpg';
 ---
 
 <section id="hero" class="bg-gradient-to-r from-pink-300 via-red-300 to-yellow-300 text-white py-20">
@@ -12,10 +14,10 @@
       </p>
     </div>
     <div class="md:w-1/2 mb-8 md:mt-0 flex justify-center">
-      <img
-        src="https://images.pexels.com/photos/5732532/pexels-photo-5732532.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
-        alt="Portrait of a dog"
-        class="rounded-lg shadow-lg w-80 h-80 object-cover"
+      <Image src={myImage}
+        
+        alt="Portrait of Linguini"
+        class="rounded-lg shadow-lg w-96 h-96 object-cover"
       />
     </div>
   </div>

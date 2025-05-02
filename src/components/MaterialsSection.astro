@@ -1,5 +1,7 @@
 ---
-
+import { Image } from 'astro:assets';
+import pencils from '../assets/portraits/3.jpg';
+import charcoal from '../assets/portraits/6.jpg';
 ---
 
 <section id="materials" class="py-16 bg-gray-100">
@@ -11,22 +13,22 @@
       more realistic style or charcoal for dramatic contrasts.
     </p>
     <div class="grid md:grid-cols-2 gap-8">
-      <div class="bg-white rounded-lg shadow-lg overflow-hidden">
-        <img
-          src="https://images.pexels.com/photos/39317/chihuahua-dog-puppy-cute-39317.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+      <div class="bg-white rounded-lg shadow-lg overflow-hidden flex">
+        <Image
+          src={pencils}
           alt="Colored pencil portrait sample"
-          class="w-full h-64 object-cover"
+          class="w-64 h-80 object-cover"
         />
         <div class="p-6">
           <h3 class="text-2xl font-semibold mb-2">Colored Pencil</h3>
           <p class="text-gray-700">Vibrant, realistic portraits with fine detail and rich colors.</p>
         </div>
       </div>
-      <div class="bg-white rounded-lg shadow-lg overflow-hidden">
-        <img
-          src="https://images.pexels.com/photos/1805164/pexels-photo-1805164.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
+      <div class="bg-white rounded-lg shadow-lg overflow-hidden flex">
+        <Image
+          src={charcoal}
           alt="Charcoal portrait sample"
-          class="w-full h-64 object-cover"
+          class="w-64 h-80 object-cover"
         />
         <div class="p-6">
           <h3 class="text-2xl font-semibold mb-2">Charcoal</h3>
