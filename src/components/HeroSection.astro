@@ -1,24 +1,65 @@
 ---
 
 import { Image } from 'astro:assets';
-import myImage from '../assets/portraits/5.jpg';
+// Import all portrait images for the slider
+const portraitModules = import.meta.glob('../assets/portraits/*.{jpg,jpeg,png}', { eager: true });
+const portraits = Object.entries(portraitModules)
+  .sort(([a], [b]) => a.localeCompare(b, undefined, { numeric: true }))
+  .map(([, m]) => m.default);
 ---
 
-<section id="hero" class="bg-gradient-to-r from-pink-300 via-red-300 to-yellow-300 text-white py-20">
+<section id="hero" class="bg-gradient-to-r from-pink-300 via-red-300 to-yellow-300 text-black py-20">
   <div class="container mx-auto px-6 flex flex-col-reverse md:flex-row items-center">
     <div class="md:w-1/2 text-center md:text-left">
-      <h2 class="text-4xl md:text-5xl font-bold mb-4">Meet Linguini</h2>
-      <p class="mb-6 text-lg md:text-xl">
-        This is my dog, Linguini, a gentle and loving rough collie who loves slow
-        sniff walks and frolicking in the snow.
-      </p>
+      <h2 class="text-3xl md:text-4xl mb-4">Pet Portrait Commissions</h2>
+      <div class="space-y-4 text-xl leading-relaxed">
+        <p>
+          I enjoy creating realistic artwork full of detail and personality. My goal
+          is to portray exactly how goofy or straight-faced, sassy or devoted,
+          angelic or full of mischief your pet is.
+        </p>
+        <p>
+          When you commission a portrait from me, you're getting my commitment to
+          drawing every hair, feather or scale in order to bring your beloved pet to
+          life on paper.
+        </p>
+      </div>
     </div>
-    <div class="md:w-1/2 mb-8 md:mt-0 flex justify-center">
-      <Image src={myImage}
-        
-        alt="Portrait of Linguini"
-        class="rounded-lg shadow-lg w-96 h-96 object-cover"
-      />
+    <div class="md:w-1/2 mb-4 md:mt-0 flex justify-center">
+      <div class="relative w-[27rem] h-[29rem]">
+        {portraits.map((portrait) => (
+          <Image
+            src={portrait}
+            alt="Pet portrait commission"
+            class="portrait absolute inset-0 w-full h-full object-cover rounded-lg shadow-lg opacity-0 transition-opacity duration-1000 ease-in-out"
+          />
+        ))}
+      </div>
     </div>
   </div>
+  <script type="module">
+    const portraitsEl = document.querySelectorAll('#hero .portrait');
+    let current = 0;
+    if (portraitsEl.length > 0) {
+      portraitsEl[current].classList.add('opacity-100');
+      setInterval(() => {
+        portraitsEl[current].classList.remove('opacity-100');
+        current = (current + 1) % portraitsEl.length;
+        portraitsEl[current].classList.add('opacity-100');
+      }, 7000);
+    }
+  </script>
 </section>
+<style>
+  @keyframes kenburns {
+    from {
+      transform: scale(1) rotate(-1deg);
+    }
+    to {
+      transform: scale(1.05) rotate(1deg);
+    }
+  }
+  #hero .portrait {
+    animation: kenburns 20s ease-in-out infinite alternate;
+  }
+</style>
